@@ -9,7 +9,7 @@
 
 const gcd = (a:number,b:number) => {
     if(a == 0) return b
-    return gcd(a%b,a)
+    return gcd(b,a%b)
 }
 
 

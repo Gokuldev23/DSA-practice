@@ -1,6 +1,6 @@
 /**
  * ✅ Solved on 2025-07-14
- * Leetcode #438
+ * Leetcode #724
  * Approach: Prefix Sum
  * Time: O(n), Space: O(1)
  * Where n = nums.length

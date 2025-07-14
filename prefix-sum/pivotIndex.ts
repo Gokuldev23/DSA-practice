@@ -1,9 +1,9 @@
 /**
  * ✅ Solved on 2025-07-14
  * Leetcode #438
- * Approach: Ecludien Algorithm
+ * Approach: Prefix Sum
  * Time: O(n), Space: O(1)
- * Where n = s.length, m = p.length
+ * Where n = nums.length
  */
 
 

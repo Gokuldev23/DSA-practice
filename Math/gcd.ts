@@ -6,7 +6,6 @@
  * Where n = s.length, m = p.length
  */
 
-
 const gcd = (a:number,b:number) => {
     if(a == 0) return b
     return gcd(b,a%b)

@@ -6,7 +6,6 @@
  * Where n = nums.length
  */
 
-
 const pivotIndex = (nums: number[]) => {
 
     let totalSum = nums.reduce((prev,curr)=>prev+=curr,0)

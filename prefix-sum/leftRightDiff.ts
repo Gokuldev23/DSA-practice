@@ -26,5 +26,4 @@ function leftRightDifference(nums: number[]): number[] {
 let num = [10,4,8,3]
 
 // Output: [15,1,11,22]
-
 console.log(leftRightDifference(num))

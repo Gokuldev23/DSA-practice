@@ -1,38 +1,45 @@
 
 
 
-const minWindowSubstring = (s:string,k:string):string => {
+const minWindowSubstring = (s:string,k:string) => {
 
-    let kFreq = Array(26).fill(0)
+    let charCodeA = "A".charCodeAt(0)
+    let freqK = Array(26).fill(0)
 
-    let kMap = new Set(k.split(""))
+    let kSet = new Set(k.split(""))
 
-    let ACharCode = "A".charCodeAt(0)
 
-    for(let char of k) {
-        kFreq[char.charCodeAt(0) - ACharCode]+=1
+
+    for (let char of k) {
+        freqK[char.charCodeAt(0) - charCodeA] +=1
     }
 
-    let l = 0
-    let r = 0
+    let left = 0
+    let right = 0
     let res = ""
-    let copyKFreq = [...kFreq]
-    while(r<=s.length) {
-       if(kMap.has(s[r])){
-           copyKFreq[s[r].charCodeAt(0) - ACharCode]-=1
-           if(copyKFreq.every(num=>num<=0)){
-            copyKFreq = [...kFreq]
-            if(res === "") {
-                res = s.substring(l,r)
-            }else if(s.substring(l,r).length<res.length){
-                res = s.substring(l,r)
+
+    while(right<s.length - 1) {
+
+        while(!kSet.has[s[left]]){
+            left++
+        }
+        let freqS = Array(26).fill(0)
+        if(kSet.has(s[right])){
+            freqS[s[right].charCodeAt(0) - charCodeA]+=1
+        }
+
+        if(freqS.join("") === freqK.join("")){
+
+            if(res == "") {
+                res = s.slice(left,right)
+            }else if(right-left<res.length){
+                res = s.slice(left,right)
             }
-            l++
-          }
-       }
-       r++
+
+            freqS[left]--
+        }
+        right++
     }
- 
     return res
 }
 

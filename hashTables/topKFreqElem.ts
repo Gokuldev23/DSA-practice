@@ -1,4 +1,10 @@
-
+/**
+ * ✅ Solved on 2025-07-19
+ * LeetCode #347
+ * Approach: HashMap
+ * Time: O(n), Space: O(n)
+ * Where (n = nums.length)
+ */
 
 
 function topKFrequent(nums: number[], k: number): number[] {

@@ -1,48 +1,55 @@
+/**
+ * ✅ Solved on 2025-07-23
+ * Leetcode #76
+ * Approach: Hash Map
+ * Time: O(n + m), Space: O(1)
+ * Where n = s.length , m = t.length
+ */
 
+function minWindowSubstring(s: string, t: string): string {
+  let tFreq = new Map<string, number>();
 
+  let sFreq = new Map<string, number>();
 
-const minWindowSubstring = (s:string,k:string) => {
+  for (const char of t) {
+    tFreq.set(char, (tFreq.get(char) || 0) + 1);
+  }
 
-    let charCodeA = "A".charCodeAt(0)
-    let freqK = Array(26).fill(0)
+  let l = 0,
+    r = 0;
+  let have = 0;
+  let need = tFreq.size;
+  let res = [-1, -1];
+  let minLen = Infinity;
 
-    let kSet = new Set(k.split(""))
+  while (r <= s.length) {
+    let char = s[r];
+    sFreq.set(char, (sFreq.get(char) || 0) + 1);
 
-
-
-    for (let char of k) {
-        freqK[char.charCodeAt(0) - charCodeA] +=1
+    if (tFreq.has(char) && sFreq.get(char) === tFreq.get(char)) {
+      have++;
     }
 
-    let left = 0
-    let right = 0
-    let res = ""
+    while (have === need) {
+      if (r - l < minLen) {
+        minLen = r - l;
+        res = [l, r];
+      }
 
-    while(right<s.length - 1) {
-
-        while(!kSet.has[s[left]]){
-            left++
-        }
-        let freqS = Array(26).fill(0)
-        if(kSet.has(s[right])){
-            freqS[s[right].charCodeAt(0) - charCodeA]+=1
-        }
-
-        if(freqS.join("") === freqK.join("")){
-
-            if(res == "") {
-                res = s.slice(left,right)
-            }else if(right-left<res.length){
-                res = s.slice(left,right)
-            }
-
-            freqS[left]--
-        }
-        right++
+      let char = s[l];
+      sFreq.set(char, (sFreq.get(char) || 0) - 1);
+      if (tFreq.get(char) && sFreq.get(char)! < tFreq.get(char)!) {
+        have--;
+      }
+      l++;
     }
-    return res
+    r++;
+  }
+
+  const [start, end] = res;
+  return minLen === Infinity ? "" : s.slice(start, end + 1);
 }
 
-let s = "ADOBECODEBANC"
-let k = "ABC"
-console.log(minWindowSubstring(s,k));
+let s = "ADOBECODEBANC";
+let k = "ABC";
+console.log(minWindowSubstring(s, k));

@@ -7,14 +7,17 @@
  */
 
 const twoSums = (nums:number[],target:number) => {
-     let map = new Map()
-    for(let i =0;i<nums.length;i++) {
-        const diff = target - nums[i]
-        if(map.has(diff)){
-            return [map.get(diff),i]
+     const map = new Map<number,number>()
+     for (let i = 0; i < nums.length; i++) {
+        const element = nums[i];
+        if(map.has(element)){
+            return [map.get(element),i]
         }
-        map.set(nums[i],i)
-    }
+        map.set(target-element,i)
+     }
+     return [-1,-1]
 }
 
 console.log(twoSums([1,4,3,5,6],7))
+console.log(twoSums([2,7,11,15],9))
+console.log(twoSums([1,5,3,2,7,1],7))

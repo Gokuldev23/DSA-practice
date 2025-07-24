@@ -19,7 +19,7 @@ const sieveOfEratosthenes = (num:number) => {
         }
     }
 
-    for(let i = 2;i<=isPrime.length;i++){
+    for(let i = 2;i<=num;i++){
         if(isPrime[i]) 
             res.push(i)
     }

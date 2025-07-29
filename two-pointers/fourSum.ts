@@ -1,3 +1,11 @@
+/**
+ * ✅ Solved on 2025-07-26
+ * Leetcode #18
+ * Approach: Two-Pointers
+ * Time: O(n^3), Space: O(1) 
+ * Where n = nums.length
+ */
+
 const fourSum = (nums: number[], target: number) => {
   nums.sort((a, b) => a - b);
   let res: number[][] = [];

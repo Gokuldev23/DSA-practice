@@ -1,6 +1,10 @@
 
 // Space optimized Fibonacci Method//
-
+/**
+ * ✅ Solved on 2025-07-31
+ * Approach: Space-Optimized
+ * Time: O(n), Space: O(1)
+ */
 
 const fib = (n:number):number => {
 

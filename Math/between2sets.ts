@@ -3,7 +3,6 @@ const gcdNum = (a:number,b:number) => {
     return b === 0 ? a : gcdNum(b,a%b)
 }
 
-
 const lcm = (a:number,b:number) => {
     return (a*b)/gcdNum(a,b)
 }

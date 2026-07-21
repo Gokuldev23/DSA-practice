@@ -6,7 +6,9 @@
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "skipLibCheck": true,
-    "types": ["vitest/globals"]
+    "types": ["vitest/globals"],
+    "allowImportingTsExtensions": true, // lets `import ... from "./x.ts"` work
+    "noEmit": true // required
   },
   "include": ["**/*.ts"]
 }
